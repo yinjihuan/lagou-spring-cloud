@@ -12,7 +12,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>hystrix-dashboard</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hystrix</name>
+	<name>hystrix-dashboard</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

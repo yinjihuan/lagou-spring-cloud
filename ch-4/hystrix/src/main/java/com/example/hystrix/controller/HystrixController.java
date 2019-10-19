@@ -17,7 +17,7 @@ public class HystrixController {
 
 	@HystrixCommand(commandKey="getUser", groupKey="user", fallbackMethod = "fallback", threadPoolKey ="tpk1",
 			commandProperties = {
-					@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "20000") 
+					@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000") 
 			}
 	)
 	@GetMapping("/get")
