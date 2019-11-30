@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.cxytiandi.auth.context.ContextHolder;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-
 
 @RestController
 public class ArticleController {
@@ -24,10 +21,9 @@ public class ArticleController {
 	//@HystrixCommand
 	@GetMapping("/article/callHello") 	
 	public String callHello(HttpServletRequest request) { 	
-		// 正确获取方式String uid = ContextHolder.getCurrentContext().get("uid");
-		logger.info(Thread.currentThread().getName() + ":我是/article/callHello:"+request.getHeader("uid"));
+		logger.info(Thread.currentThread().getName() + ":我是/article/callHello");
 	    return restTemplate.getForObject(
-			"http://auth-user-service/user/hello", String.class); 	
+			"http://discovery-user-service/user/hello", String.class); 	
 	}
 	
 	
