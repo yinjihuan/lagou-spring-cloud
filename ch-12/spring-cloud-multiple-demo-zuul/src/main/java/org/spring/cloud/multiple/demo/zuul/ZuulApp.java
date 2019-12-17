@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
+import com.alicp.jetcache.anno.config.EnableCreateCacheAnnotation;
+
 /**
  * Zuul 启动类
  * 
@@ -12,6 +14,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @about http://cxytiandi.com/about
  *
  */
+@EnableCreateCacheAnnotation
 @EnableZuulProxy
 @SpringBootApplication
 public class ZuulApp {

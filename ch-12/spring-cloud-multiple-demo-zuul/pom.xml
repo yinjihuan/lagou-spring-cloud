@@ -45,6 +45,31 @@
 		</dependency>
 		
 		<dependency>
+			<groupId>com.cxytiandi</groupId>
+			<artifactId>spring-cloud-multiple-demo-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- discovery -->
+		<dependency>
+            <groupId>com.nepxion</groupId>
+            <artifactId>discovery-plugin-strategy-starter-zuul</artifactId>
+        </dependency>
+        <dependency>
+		    <groupId>com.nepxion</groupId>
+		    <artifactId>discovery-plugin-starter-eureka</artifactId>
+	    </dependency>
+	    <dependency>
+		    <groupId>com.nepxion</groupId>
+		    <artifactId>discovery-plugin-config-center-starter-apollo</artifactId>
+	    </dependency>
+	    	
+		<dependency>
+			<groupId>com.alicp.jetcache</groupId>
+			<artifactId>jetcache-starter-redis</artifactId>
+		</dependency>
+		
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>

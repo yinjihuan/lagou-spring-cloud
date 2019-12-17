@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>文章详情</title>
+<link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css">
+<script src="https://unpkg.com/vue@2.5.22/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui@2.4.11/lib/index.js"></script>
+<script src="https://unpkg.com/axios@0.18.0/dist/axios.min.js"></script>
+</head>
+<body>
+	<div id="app" style="text-align:center">
+		<div style="float:right"><el-button type="primary" @click="logout">退出登陆</el-button></div>
+		<h2> {{article.title}}</h2>
+		作者：<a> {{article.author}}</a>
+		<p>
+			{{article.content}}
+		</p>
+	</div>
+</body>
+<script>
+//添加请求拦截器
+axios.interceptors.request.use(function (config) {
+    // 在发送请求之前做些什么
+    console.log(config);
+    config.headers.token = localStorage.getItem("token");
+    return config;
+  }, function (error) {
+    // 对请求错误做些什么
+    return Promise.reject(error);
+  });
+new Vue({
+    el: '#app',
+    data: function() {
+    	return {
+    		article: {}
+    	}
+    },
+    mounted:function(){
+    	var that = this;
+    	axios.get('http://localhost:2001/spring-cloud-multiple-demo-article-provider/article/1', {
+    	    params: {
+    	      
+    	    }
+    	  })
+    	  .then(function (response) {
+    		  if(response.data.code == 200){
+    			  that.article=response.data.data;
+    		  } else {
+    			  alert(response.data.message);
+    		  }
+    	    
+    	  })
+    	  .catch(function (error) {
+    	    console.log(error);
+    	  });
+    },
+    methods:{
+    	logout:function(){
+    		var that = this;
+    		axios.post('http://localhost:2001/spring-cloud-multiple-demo-user-provider/logout', {
+    			"token":localStorage.getItem("token")
+    		})
+   		  .then(function (response) {
+   		    if(response.data.code == 200){
+   		    	//localStorage.removeItem("token");
+   		    	alert("退出成功");
+   		    } else {
+   		    	alert(response.data.message);
+   		    }
+   		  })
+   		  .catch(function (error) {
+   		    console.log(error);
+   		  });
+    	}
+    }
+})
+</script>
+</html>

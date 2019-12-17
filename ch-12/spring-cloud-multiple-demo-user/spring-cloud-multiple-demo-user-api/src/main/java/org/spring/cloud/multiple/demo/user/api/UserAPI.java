@@ -2,6 +2,7 @@ package org.spring.cloud.multiple.demo.user.api;
 
 import org.spring.cloud.multiple.demo.common.base.ResponseData;
 import org.spring.cloud.multiple.demo.user.api.request.UserLoginRequest;
+import org.spring.cloud.multiple.demo.user.api.request.UserLogoutRequest;
 import org.spring.cloud.multiple.demo.user.api.response.UserLoginResponse;
 import org.spring.cloud.multiple.demo.user.api.response.UserResponse;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -20,6 +21,14 @@ public interface UserAPI {
 	 */
 	@PostMapping("/login")
 	ResponseData<UserLoginResponse> login(@RequestBody UserLoginRequest request);
+	
+	/**
+	 * 登出
+	 * @param request
+	 * @return
+	 */
+	@PostMapping("/logout")
+	ResponseData<UserLoginResponse> logout(@RequestBody UserLogoutRequest request);
 	
 	/**
 	 * 获取用户
