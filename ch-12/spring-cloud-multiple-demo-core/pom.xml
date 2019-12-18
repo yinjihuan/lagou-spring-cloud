@@ -33,22 +33,18 @@
 		<dependency>
 		    <groupId>com.nepxion</groupId>
 		    <artifactId>discovery-plugin-strategy-starter-service</artifactId>
-		    <optional>true</optional>
 		</dependency>
         <dependency>
 		    <groupId>com.nepxion</groupId>
 		    <artifactId>discovery-plugin-starter-eureka</artifactId>
-		    <optional>true</optional>
 	    </dependency>
 	    <dependency>
 		    <groupId>com.nepxion</groupId>
 		    <artifactId>discovery-plugin-config-center-starter-apollo</artifactId>
-		    <optional>true</optional>
 	    </dependency>
 	    <dependency>
 		    <groupId>com.nepxion</groupId>
 		    <artifactId>discovery-plugin-strategy-starter-hystrix</artifactId>
-		    <optional>true</optional>
 		</dependency>
 		
 		<dependency>

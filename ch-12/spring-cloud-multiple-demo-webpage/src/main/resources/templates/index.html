@@ -28,7 +28,7 @@ axios.interceptors.request.use(function (config) {
   }, function (error) {
     // 对请求错误做些什么
     return Promise.reject(error);
-  });
+});
 new Vue({
     el: '#app',
     data: function() {
@@ -48,6 +48,7 @@ new Vue({
     			  that.article=response.data.data;
     		  } else {
     			  alert(response.data.message);
+    			  window.location.href = "/login";
     		  }
     	    
     	  })

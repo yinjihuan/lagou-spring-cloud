@@ -3,6 +3,8 @@ package org.spring.cloud.multiple.demo.user.provider.controller;
 import org.spring.cloud.multiple.demo.common.base.Response;
 import org.spring.cloud.multiple.demo.common.base.ResponseData;
 import org.spring.cloud.multiple.demo.common.utils.JWTUtils;
+import org.spring.cloud.multiple.demo.common.utils.JWTUtils.JWTResult;
+import org.spring.cloud.multiple.demo.core.context.ContextHolder;
 import org.spring.cloud.multiple.demo.user.api.UserAPI;
 import org.spring.cloud.multiple.demo.user.api.request.UserLoginRequest;
 import org.spring.cloud.multiple.demo.user.api.request.UserLogoutRequest;
@@ -14,7 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alicp.jetcache.Cache;
 import com.alicp.jetcache.anno.CreateCache;
 
+import lombok.extern.slf4j.Slf4j;
 
+
+@Slf4j
 @RestController
 public class UserRestController implements UserAPI {
 
@@ -42,6 +47,12 @@ public class UserRestController implements UserAPI {
 	public ResponseData<UserLoginResponse> logout(UserLogoutRequest request) {
 		if (!StringUtils.hasText(request.getToken())) {
 			return Response.failByParams("参数不完整");
+		}
+		String uid = ContextHolder.getCurrentContext().get("uid");
+		log.info("user {}", uid);
+		JWTResult jwtResult = JWTUtils.getInstance().checkToken(request.getToken());
+		if (!jwtResult.getUid().equals(uid)) {
+			return Response.failByParams("不能注销别人登陆信息");
 		}
 		logoutCache.put(request.getToken(), 1L);
 		return Response.ok();
