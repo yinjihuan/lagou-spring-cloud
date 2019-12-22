@@ -3,6 +3,7 @@ package org.spring.cloud.multiple.demo.zuul;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.alicp.jetcache.anno.config.EnableCreateCacheAnnotation;
 
@@ -14,6 +15,7 @@ import com.alicp.jetcache.anno.config.EnableCreateCacheAnnotation;
  * @about http://cxytiandi.com/about
  *
  */
+@ComponentScan(basePackages={"org.spring.cloud.multiple.demo"})
 @EnableCreateCacheAnnotation
 @EnableZuulProxy
 @SpringBootApplication

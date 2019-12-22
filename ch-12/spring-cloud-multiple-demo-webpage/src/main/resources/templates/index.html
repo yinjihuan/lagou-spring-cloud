@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div id="app" style="text-align:center">
-		<div style="float:right"><el-button type="primary" @click="logout">退出登陆</el-button></div>
+		<div style="float:right"><el-button type="primary" @click="logout">退出登录</el-button></div>
 		<h2> {{article.title}}</h2>
 		作者：<a> {{article.author}}</a>
 		<p>
@@ -38,7 +38,7 @@ new Vue({
     },
     mounted:function(){
     	var that = this;
-    	axios.get('http://localhost:2001/spring-cloud-multiple-demo-article-provider/article/1', {
+    	axios.get('http://192.168.1.18:2001/spring-cloud-multiple-demo-article-provider/article/1', {
     	    params: {
     	      
     	    }
@@ -48,7 +48,7 @@ new Vue({
     			  that.article=response.data.data;
     		  } else {
     			  alert(response.data.message);
-    			  window.location.href = "/login";
+    			  //window.location.href = "/login";
     		  }
     	    
     	  })
@@ -59,7 +59,7 @@ new Vue({
     methods:{
     	logout:function(){
     		var that = this;
-    		axios.post('http://localhost:2001/spring-cloud-multiple-demo-user-provider/logout', {
+    		axios.post('http://192.168.1.18:2001/spring-cloud-multiple-demo-user-provider/logout', {
     			"token":localStorage.getItem("token")
     		})
    		  .then(function (response) {

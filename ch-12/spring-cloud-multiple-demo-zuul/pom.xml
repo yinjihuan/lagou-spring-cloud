@@ -25,11 +25,6 @@
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		
@@ -50,20 +45,18 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>com.cxytiandi</groupId>
+			<artifactId>spring-cloud-multiple-demo-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
 		<!-- discovery -->
 		<dependency>
             <groupId>com.nepxion</groupId>
             <artifactId>discovery-plugin-strategy-starter-zuul</artifactId>
         </dependency>
-        <dependency>
-		    <groupId>com.nepxion</groupId>
-		    <artifactId>discovery-plugin-starter-eureka</artifactId>
-	    </dependency>
-	    <dependency>
-		    <groupId>com.nepxion</groupId>
-		    <artifactId>discovery-plugin-config-center-starter-apollo</artifactId>
-	    </dependency>
-	    	
+       
 		<dependency>
 			<groupId>com.alicp.jetcache</groupId>
 			<artifactId>jetcache-starter-redis</artifactId>

@@ -8,14 +8,12 @@ import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.stereotype.Component;
 
 /**
  * RestTemplate拦截器，传递认证的Token
  * @author yinjihuan
  *
  */
-@Component
 public class RestTemplateRequestInterceptor implements ClientHttpRequestInterceptor {
 
 	@Override

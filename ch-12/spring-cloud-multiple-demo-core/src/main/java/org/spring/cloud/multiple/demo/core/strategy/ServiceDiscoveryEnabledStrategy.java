@@ -7,7 +7,6 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.nepxion.discovery.plugin.framework.adapter.PluginAdapter;
@@ -15,7 +14,6 @@ import com.nepxion.discovery.plugin.strategy.adapter.DiscoveryEnabledStrategy;
 import com.nepxion.discovery.plugin.strategy.service.context.ServiceStrategyContextHolder;
 import com.netflix.loadbalancer.Server;
 
-@Component
 public class ServiceDiscoveryEnabledStrategy implements DiscoveryEnabledStrategy {
     private static final Logger LOG = LoggerFactory.getLogger(ServiceDiscoveryEnabledStrategy.class);
 

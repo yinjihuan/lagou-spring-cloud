@@ -52,7 +52,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zipkin</artifactId>
 		</dependency>
-		
+		<dependency>
+		    <groupId>com.nepxion</groupId>
+		    <artifactId>discovery-plugin-strategy-starter-service</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
